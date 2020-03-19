@@ -5012,6 +5012,11 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
+fuse.js@^5.0.7-beta:
+  version "5.0.7-beta"
+  resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-5.0.7-beta.tgz#4fd33935854967f295dcdc533210100535a879f3"
+  integrity sha512-uiOVaHR69aXAHU1dUvFuOyK2qteiPQ4RJX4I0B1vHzuSCpSLRgzBgGc0XyOlrMIk2hKqJh45VSrnI3WtpvUeAg==
+
 gensync@^1.0.0-beta.1:
   version "1.0.0-beta.1"
   resolved "https://registry.yarnpkg.com/gensync/-/gensync-1.0.0-beta.1.tgz#58f4361ff987e5ff6e1e7a210827aa371eaac269"
@@ -9180,6 +9185,11 @@ react-transition-group@^4.0.0, react-transition-group@^4.3.0:
     dom-helpers "^5.0.1"
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
+
+react-use-fuse@^0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/react-use-fuse/-/react-use-fuse-0.5.2.tgz#0847aaf7d54efb3a67bf77fe3e2e7ece74a578e4"
+  integrity sha512-SIDSBYdmh87Rko0clLV5Q1egdpadDegbJxaVM1eu/bzO2s5ecUphgHxUY3hyugJe6xMSHnNm6Ilc4CmRw2hbIw==
 
 react@^16.12.0, react@^16.13.0:
   version "16.13.0"

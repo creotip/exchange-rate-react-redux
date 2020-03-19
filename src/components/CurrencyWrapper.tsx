@@ -19,20 +19,26 @@ const useStyles = makeStyles(theme => ({
 interface CurrencyWrapperProps {
   general: object
   data: object
+  rates: object
 }
 
 // TODO remove any
-const CurrencyWrapper = ({ data }: any) => {
+const CurrencyWrapper = ({ rates }: any) => {
   const classes = useStyles()
   return (
     <Paper className={classes.root}>
-      {isSolid(data) &&
-        Object.keys(data.rates).map((itemKey, index) => (
+      {isSolid(rates) &&
+        Object.keys(rates).map((itemKey, index) => (
           <Fragment key={index}>
             <List component="nav" aria-label="main mailbox folders">
               <ListItem button>
                 <ListItemText primary={itemKey} />
-                <ListItemText primary={data.rates[itemKey]} />
+                <ListItemText
+                  primary={rates[itemKey]}
+                  style={{
+                    textAlign: 'right',
+                  }}
+                />
               </ListItem>
             </List>
             <Divider />
