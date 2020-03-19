@@ -21,7 +21,6 @@ function App({ isLoggedIn, isLoading }: AppProps) {
       <div className="App">
         {isLoading && <Loader />}
         {isLoggedIn && <Header />}
-
         {isLoggedIn ? <Home /> : <Login />}
       </div>
     </MuiPickersUtilsProvider>
