@@ -7,6 +7,12 @@ import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
+import { logoutHandler } from '../redux/actions/auth'
+
+interface HeaderProps {
+  isLoggedIn: boolean
+  logoutHandler: () => void
+}
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -20,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-function Header() {
+function Header({ logoutHandler }: HeaderProps) {
   const classes = useStyles()
 
   return (
@@ -33,7 +39,9 @@ function Header() {
           <Typography variant="h6" className={classes.title}>
             Exchange Rate
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit" onClick={logoutHandler}>
+            Logout
+          </Button>
         </Toolbar>
       </AppBar>
     </div>
@@ -45,4 +53,8 @@ const mapStateToProps = ({ auth }: any) => ({
   isLoggedIn: auth.isLoggedIn,
 })
 
-export default connect(mapStateToProps)(Header)
+const dispatchPropsToState = {
+  logoutHandler,
+}
+
+export default connect(mapStateToProps, dispatchPropsToState)(Header)

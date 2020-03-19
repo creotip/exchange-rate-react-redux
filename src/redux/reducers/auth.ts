@@ -1,7 +1,7 @@
 import { actionTypes } from '../actions/auth'
 
 export const initialState: any = {
-  token: '',
+  token: null,
   isLoggedIn: false,
 }
 
@@ -13,7 +13,12 @@ const reducerAuth = (state = initialState, action: any) => {
         token: action.token,
         isLoggedIn: true,
       }
-
+    case actionTypes.CLEAR_TOKEN:
+      return {
+        ...state,
+        token: null,
+        isLoggedIn: false,
+      }
     default:
       return state
   }
