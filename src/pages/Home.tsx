@@ -27,7 +27,7 @@ const Home = ({ generalHandler }: HomeProps) => {
   console.log('home rendered')
   return (
     <>
-      <Box m={3} style={{ maxWidth: 500, margin: 'auto' }}>
+      <Box p={2} m={3} style={{ maxWidth: 500, margin: 'auto' }}>
         <Title>Euro foreign exchange reference rates</Title>
         <Grid container spacing={3} style={{ marginBottom: '2rem' }}>
           <Grid item xs={6}>
@@ -39,7 +39,7 @@ const Home = ({ generalHandler }: HomeProps) => {
             </form>
           </Grid>
         </Grid>
-        <Grid container spacing={3} style={{ justifyContent: 'center' }}>
+        <Grid container spacing={3} style={{ justifyContent: 'center', marginBottom: '1rem' }}>
           <CurrencyWrapper />
         </Grid>
       </Box>

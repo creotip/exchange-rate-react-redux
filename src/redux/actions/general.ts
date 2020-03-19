@@ -29,10 +29,10 @@ export const setSearchInput = (searchInput: string) => ({
   searchInput,
 })
 
-export const generalHandler = () => async (dispatch: any, getState: any) => {
+export const generalHandler = (date?: any) => async (dispatch: any, getState: any) => {
   dispatch(setIsLoading())
   const { apiURL } = config
-  const selectedDate = getState().general.selectedDate
+  const selectedDate = isSolid(date) ? date : getState().general.selectedDate
   const parsedSelectedDate = moment(selectedDate).format(config.dateFormat)
 
   const ApiUrlWithDate = apiURL + parsedSelectedDate
