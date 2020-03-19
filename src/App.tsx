@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+// import { createBrowserHistory } from 'history'
+import { generalHandler } from './redux/actions/general'
+// import { Route, Router } from 'react-router-dom'
+// import Routes from './components/Routes'
+import Home from './pages/Home'
+import Login from './pages/Login'
+import Header from './components/Header'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// const history = createBrowserHistory()
+
+interface AppProps {
+  isLoggedIn: boolean
+  generalHandler: () => void
 }
 
-export default App;
+function App({ isLoggedIn, generalHandler }: AppProps) {
+  useEffect(() => {
+    // if (!isLoggedIn) {
+    //   history.push('login')
+    // } else history.push('home')
+    generalHandler()
+  }, [isLoggedIn])
+
+  return (
+    <div className="App">
+      {/* <Router history={history}>
+        <div>Navigation</div>
+        <Route component={Routes} />
+      </Router> */}
+      <Header />
+      {isLoggedIn ? <Home /> : <Login />}
+    </div>
+  )
+}
+
+const mapStateToProps = ({ general, auth }: any) => ({
+  data: general.data,
+  isLoggedIn: auth.isLoggedIn,
+})
+
+const dispatchPropsToState = {
+  generalHandler,
+}
+
+export default connect(mapStateToProps, dispatchPropsToState)(App)
