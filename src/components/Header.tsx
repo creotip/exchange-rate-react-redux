@@ -9,6 +9,7 @@ import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
 import { logoutHandler } from '../redux/actions/auth'
 import styled from 'styled-components'
+import { RootState } from '../constants/interfaces'
 
 interface HeaderProps {
   isLoggedIn: boolean
@@ -54,8 +55,7 @@ function Header({ logoutHandler }: HeaderProps) {
   )
 }
 
-// TODO remove any type
-const mapStateToProps = ({ auth }: any) => ({
+const mapStateToProps = ({ auth }: RootState) => ({
   isLoggedIn: auth.isLoggedIn,
 })
 

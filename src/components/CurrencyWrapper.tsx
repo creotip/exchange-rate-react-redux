@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import { connect } from 'react-redux'
 import isSolid from 'is-solid'
 import { makeStyles } from '@material-ui/core/styles'
 import List from '@material-ui/core/List'
@@ -7,6 +6,7 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import Divider from '@material-ui/core/Divider'
 import Paper from '@material-ui/core/Paper'
+import { DataProps } from '../constants/interfaces'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -16,14 +16,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-interface CurrencyWrapperProps {
-  general: object
-  data: object
-  rates: object
-}
-
-// TODO remove any
-const CurrencyWrapper = ({ rates }: any) => {
+const CurrencyWrapper = ({ rates }: DataProps) => {
   const classes = useStyles()
   return (
     <Paper className={classes.root}>
@@ -48,8 +41,8 @@ const CurrencyWrapper = ({ rates }: any) => {
   )
 }
 
-// TODO remove type any
-const mapStateToProps = ({ general }: any) => ({
-  data: general.data,
-})
-export default connect(mapStateToProps)(CurrencyWrapper)
+CurrencyWrapper.defaultProps = {
+  rates: {},
+}
+
+export default CurrencyWrapper

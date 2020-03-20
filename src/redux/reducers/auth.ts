@@ -1,6 +1,7 @@
 import { actionTypes } from '../actions/auth'
+import { AuthState } from '../../constants/interfaces'
 
-export const initialState: any = {
+export const initialState: AuthState = {
   token: null,
   isLoggedIn: false,
 }

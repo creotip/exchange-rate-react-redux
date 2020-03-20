@@ -8,6 +8,7 @@ import styled from 'styled-components'
 import CurrencyWrapper from '../components/CurrencyWrapper'
 import { generalHandler } from '../redux/actions/general'
 import isSolid from 'is-solid'
+import { RootState } from '../constants/interfaces'
 
 interface HomeProps {
   data: any
@@ -65,16 +66,17 @@ const Home = ({ data, generalHandler }: HomeProps) => {
             </form>
           </Grid>
         </Grid>
-        <Grid container spacing={3} style={{ justifyContent: 'center', marginBottom: '1rem' }}>
-          <CurrencyWrapper rates={filteredData} />
-        </Grid>
+        {isSolid(filteredData) && (
+          <Grid container spacing={3} style={{ justifyContent: 'center', marginBottom: '1rem' }}>
+            <CurrencyWrapper rates={filteredData} />
+          </Grid>
+        )}
       </Box>
     </>
   )
 }
 
-// TODO remove type any
-const mapStateToProps = ({ general, auth }: any) => ({
+const mapStateToProps = ({ general, auth }: RootState) => ({
   data: general.data,
   isLoggedIn: auth.isLoggedIn,
   isLoading: general.isLoading,

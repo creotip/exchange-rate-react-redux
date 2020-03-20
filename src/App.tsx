@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { MuiPickersUtilsProvider } from '@material-ui/pickers'
 import MomentUtils from '@date-io/moment'
@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Header from './components/Header'
 import Loader from './components/Loader'
+import { RootState } from './constants/interfaces'
 
 interface AppProps {
   isLoggedIn: boolean
@@ -27,8 +28,7 @@ function App({ isLoggedIn, isLoading }: AppProps) {
   )
 }
 
-// TODO remove type any
-const mapStateToProps = ({ general, auth }: any) => ({
+const mapStateToProps = ({ auth, general }: RootState) => ({
   data: general.data,
   isLoggedIn: auth.isLoggedIn,
   isLoading: general.isLoading,

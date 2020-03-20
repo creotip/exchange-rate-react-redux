@@ -1,12 +1,13 @@
 import axios from 'axios'
 import config from '../../config'
+import { AuthState } from '../../constants/interfaces'
 
 export const actionTypes = {
   SET_TOKEN: 'SET_TOKEN',
   CLEAR_TOKEN: 'CLEAR_TOKEN',
 }
 
-export const setToken = (token: string) => ({
+export const setToken = (token: AuthState) => ({
   type: actionTypes.SET_TOKEN,
   token,
 })

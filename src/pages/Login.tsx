@@ -16,8 +16,6 @@ const LoginWrapper = styled(Paper)`
   padding: 1rem;
 `
 
-const FormWrapper = styled.form``
-
 const Login = ({ loginHandler }: LoginProps) => {
   return (
     <LoginWrapper>

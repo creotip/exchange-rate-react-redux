@@ -1,7 +1,7 @@
 import { actionTypes } from '../actions/general'
-import moment from 'moment'
+import { GeneralState } from '../../constants/interfaces'
 
-export const initialState: any = {
+export const initialState: GeneralState = {
   isLoading: false,
   data: {},
   selectedDate: new Date(),
