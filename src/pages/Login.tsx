@@ -21,14 +21,14 @@ const LoginWrapper = styled(Paper)`
 const Login = ({ loginHandler }: LoginProps) => {
   const { register, handleSubmit, errors } = useForm()
 
-  const submitLogin = () => {
+  const onSubmit = () => {
     loginHandler('eve.holt@reqres.in', 'cityslicka')
   }
 
   return (
     <LoginWrapper>
       <h4>Enter your credentials</h4>
-      <form onSubmit={handleSubmit(submitLogin)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Box mb={2}>
           <TextField
             inputRef={register({ required: true })}
@@ -52,7 +52,7 @@ const Login = ({ loginHandler }: LoginProps) => {
           />
         </Box>
         <Box>
-          <Button type="submit" variant="contained" color="primary" onClick={() => submitLogin()}>
+          <Button type="submit" variant="contained" color="primary">
             Primary
           </Button>
         </Box>
