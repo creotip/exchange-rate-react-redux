@@ -22,11 +22,7 @@ const Login = ({ loginHandler }: LoginProps) => {
   const { register, handleSubmit, errors } = useForm()
 
   const submitLogin = () => {
-    console.log(errors)
-    if (isSolid(errors)) {
-      console.log(errors)
-      loginHandler('eve.holt@reqres.in', 'cityslicka')
-    }
+    loginHandler('eve.holt@reqres.in', 'cityslicka')
   }
 
   return (
