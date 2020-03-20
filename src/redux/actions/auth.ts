@@ -5,6 +5,7 @@ import { AuthState } from '../../constants/interfaces'
 export const actionTypes = {
   SET_TOKEN: 'SET_TOKEN',
   CLEAR_TOKEN: 'CLEAR_TOKEN',
+  SET_IS_LOADING: 'SET_IS_LOADING',
 }
 
 export const setToken = (token: AuthState) => ({
@@ -17,6 +18,9 @@ export const clearToken = () => ({
 })
 
 export const loginHandler = (email: string, password: string) => async (dispatch: any) => {
+  dispatch({
+    type: actionTypes.SET_IS_LOADING,
+  })
   const { loginUrl } = config
   const loginData = {
     email,
