@@ -21,7 +21,7 @@
     "fuse.js": "^5.0.7-beta",
     "is-solid": "^1.0.3",
     "lodash": "^4.17.15",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "prettier": "^1.19.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
